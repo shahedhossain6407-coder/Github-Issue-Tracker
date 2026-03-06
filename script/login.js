@@ -14,4 +14,5 @@ const loginBtn = document.getElementById(`loginBtn`).addEventListener(`click`,fu
     }
     userInput.value = "";
     userPassword.value = "";
+    window.location.href = "home.html";
 })
