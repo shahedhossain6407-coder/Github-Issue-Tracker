@@ -20,5 +20,40 @@
     </style>
 </head>
 <body>
-    <h1 class="text-6xl">hello world</h1>
+   <header class="w-6/12 mx-auto shadow-md ">
+    <div class="nav-container py-6 space-y-6 ">
+        <img class="mx-auto" src="./assets/github-logo.png" alt="">
+        <div class="nav-details text-center ">
+        <h1 class="font-bold text-2xl">GitHub Issues Tracker</h1>
+        <p class=" text-gray-500">Sign in to manage your issues</p>
+       </div>
+    </div>
+    <main>
+        
+            <fieldset class="fieldset rounded-box w-120 mx-auto  ">
+                <label class="label text-black text-lg">Username</label>
+                <input id="name-input" type="text" class="input w-120" placeholder="Enter Username" />
+              
+                <label class="label text-black text-lg">Password</label>
+                <input id="password-input" type="password" class="input w-120" placeholder="Enter Password" />
+    
+                <button  id="loginBtn" class="btn btn-primary mt-4">Login</button>
+              </fieldset>
+   
+        <section class="footer-section py-6">
+            <div class="flex w-7/12 flex-col mx-auto">
+                <div class="divider">OR</div>
+              </div>
+             <div class="user text-center">
+                <p class="text-gray-500 pb-4">Demo Credentials:</p>
+                 <h1>
+                    <span class="font-bold">Username :</span>admin<br>
+                    <span class="font-bold">Password :</span>admin123
+                </h1>
+             </div>
+        </section>
+    </main>
+   </header>
+  <script src="./script/login.js"></script>
 </body>
+</html>
