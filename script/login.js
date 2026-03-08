@@ -6,7 +6,7 @@ const loginBtn = document.getElementById(`loginBtn`).addEventListener(`click`,fu
     const userValue = userInput.value;
     const passwordValue = userPassword.value;
 
-    if(userValue === "admin" && passwordValue === "123"){
+    if(userValue === "admin" && passwordValue === "admin123"){
         alert(`Login Successfully`)
     }else{
         alert(`Something is wrong !! Please try again.`)
