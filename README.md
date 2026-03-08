@@ -1,24 +1,22 @@
-What is the difference between var, let, and const? 
-answer :
-var -> var hocche poronu poddhoti ,jeti use kore variable declear kora jai thikoi kintu ekoi nam diye arekti variable declear kora jai ,ja bug shishti kore abong proggrammer ra dhidhai pore jai kontar ki kaj declear koreche.
-let -> let hocche es6 er modern feature ja present e use kora hoi ,etir main boishistho holo etar variable er name arkiti variable declear kora jai na but variable er value update kora jai.
-const -> let hocche es6 er modern feature.etar main boishito holo etar variable er value update kora jai na .
+What is the difference between var, let, and const?
+Answer: var: var is an old method for declaring variables. You can declare another variable with same name, which creates bugs and make programmers confused about what they declared.
+
+let: let is a modern feature of ES6 used in present. Its main feature is that you cannot declare another variable with same name, but you can updating the variable value.
+
+const: const is also a modern feature of ES6. Its main feature is that the value of the variable cannot be updated.
 
 What is the spread operator (...)?
-answer :
--> spread operator er maddhome ekti array theke proti element dhra jai ,abong eta use kore kono prokar orginal array_er priborthon charai notun arekti copy array build kora jai. 
+Answer: Through the spread operator, every element can be catched from an array. It is used to build another new copy array without any changes of the original array.
 
 What is the difference between map(), filter(), and forEach()?
-answer :
-map() - > eti notun ekti array build kore abong protiti item k  condition onojayi priborthn kore.
-filter() -> eti notun ekti array banai kintu eti sei sb item k nei jara condition puron kore.
-forEach() -> eti loop er moto kaj kore kintu nije kono return kore na.
+Answer: map(): It builds a new array and changes every item according to the condition.
 
+filter(): It makes a new array but it only takes those items who fulfills the condition.
+
+forEach(): It works like a loop but it does not returning anything itself.
 
 What is an arrow function?
-answer: 
-arrow function -> eti es6 er ekti update virstion,eti bebohar korle code readable abong load hote smy kom lage.jdi funtion ti ek line er hoiye thake tahole return korte hoi na ja default bhabe hoiye jai kintu jokhn ekline er beshi code proyojn hoi thkn 3rd bracket er bhito code likhte hoi and sheshe return korte hoi nahole output asbe na.
+Answer: Arrow function: It is an updated version of ES6. Using this makes code readable and takes less time to loading. If the function is one line, you don't have to return because it happens by default. But when more than one line of code is needed, you have to writing code inside curly brackets and must return at the end, otherwise output will not coming.
 
 What are template literals?
-answer : 
--> template literals hocche es6 er ekti moder feature ja jekhono data k dynamic bhabe kom code use kore ui e dekhanu jai ja code k meaningfull rakhe and code readable thake.
+Answer: Template literals is a modern feature of ES6 where any data can be shown in the UI dynamically using less code. It keeps the code meaningful and the code stays readable.
