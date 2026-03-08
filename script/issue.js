@@ -53,22 +53,24 @@ const allIssueLoaded = () =>{
 
 const showModel = async (id) =>{
   const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
+  console.log(url)
   const res = await fetch(url);
   const details = await res.json();
   displayDetails(details.data)
 }
 const displayDetails = (person) =>{
+   
  const detailsContainer = document.getElementById(`details-container`);
  detailsContainer.innerHTML = `
  
  
-                <div class="space-y-6">
+                <div class="space-y-6 ">
                     <h1 class="font-bold text-2xl">${person.title}</h1>
                  <div class="flex items-center gap-2">
 
                  <button class="btn btn-accent rounded-3xl text-white">${person.status}</button>
                  <span class="text-xl font-bold">•</span>
-                 <h2 class="text-gray-500 font-bold text-xl"> by ${person.author}</h2>
+                 <h2 class="text-gray-500 font-bold text-xl">${person.status} by ${person.author}</h2>
                  <span class="text-xl font-bold">•</span>
                  <h2 class="text-gray-500 text-sm">
                  ${new Date(person.createdAt).toLocaleDateString('en-GB', { 
@@ -80,8 +82,8 @@ const displayDetails = (person) =>{
                  </div>
 
                  <div class="flex gap-2">
-                    <button class="btn btn-outline btn-error rounded-full"><i class="fa-solid fa-bug"></i>${person.labels[0]}</button>
-                    <button class="btn btn-outline btn-warning rounded-full"><i class="fa-regular fa-life-ring"></i>${person.labels[1]}</button>
+                    <button class="btn btn-outline btn-error rounded-full"><i class="fa-solid fa-bug"></i>${person.labels[0]?person.labels[0]:"No labels found"}</button>
+                    <button class="btn btn-outline btn-warning rounded-full"><i class="fa-regular fa-life-ring"></i>${person.labels[1]?person.labels[1]:"No labels found"}</button>
                  </div>
 
                    <p class="text-xl text-gray-500">${person.description}</p>
@@ -90,7 +92,7 @@ const displayDetails = (person) =>{
                     <div class="bg-blue-50 mt-10 p-5 flex gap-20 rounded-md ">
                        <div>
                         <h1>Assignee:</h1>
-                        <h2>${person.assignee}</h2>
+                        <h2>${person.assignee? person.assignee : "Unassigned"}</h2>
                        </div>
                         <div class="flex flex-col justify-center items-start gap-2 ">
                             <h1>Priority:</h1>
@@ -126,11 +128,10 @@ const displayDetails = (person) =>{
     const totalIssue = document.getElementById(`total-issue`);
     const issueContainer = document.getElementById(`issue-container`);
     issueContainer.innerHTML = ""; 
-  
     const count = allData.length;
     totalIssue.innerText = count;
   
- allData.forEach((each)=>{
+ allData.forEach((each,i)=>{
  const newDiv = document.createElement(`div`);
  if(each.status === "open"){
     newDiv.classList.add(`green-border`)    
@@ -139,7 +140,7 @@ const displayDetails = (person) =>{
  }
  newDiv.innerHTML = `
  
- <div onclick="showModel(${each.id})"  class=" shadow-xl rounded-xl my-5  px-7 space-y-2  min-h-full">
+ <div onclick="showModel(${each.id})"  class=" shadow-xl rounded-xl my-5  px-7 space-y-2 w-[100%]  min-h-full">
  <div class="icon flex justify-between ">
     <img  class="w-10" src="./assets/Open-Status.png" alt="">
     <button class="btn btn-soft btn-error">${each.priority}</button>
@@ -147,10 +148,10 @@ const displayDetails = (person) =>{
  <h1 class="font-bold text-2xl ">${each.title}</h1>
  <p>${each.description}</p>
    <div class="flex justify-between">
-    <button class="btn btn-outline btn-error btn-sm rounded-full"><i class="fa-solid fa-bug"></i>${each.labels[0]?each.labels[0]:"error"}</button>
-    <button class="btn btn-outline btn-warning btn-sm rounded-full"><i class="fa-regular fa-life-ring"></i>${each.labels[1]?each.labels[1] : "error"}</button>
+    <button class="btn btn-outline btn-error btn-sm rounded-full"><i class="fa-solid fa-bug"></i>${each.labels[0]?each.labels[0]:"No labels found"}</button>
+    <button class="btn btn-outline btn-warning btn-sm rounded-full"><i class="fa-regular fa-life-ring"></i>${each.labels[1]?each.labels[1] : "No labels found"}</button>
    </div><hr>
-    <h1 class="text-xl text-gray-500">#1 by ${each.author}</h1>
+    <h1 class="text-xl text-gray-500">#${i + 1} by ${each.author}</h1>
     <h1 class="text-xl text-gray-500">
     ${new Date(each.createdAt).toLocaleDateString('en-GB', { 
         day: '2-digit', 
